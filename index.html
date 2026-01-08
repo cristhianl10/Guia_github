@@ -4,209 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guía Completa Git & GitHub</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 40px 20px;
-            min-height: 100vh;
-        }
-        
-        .main-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        .header {
-            text-align: center;
-            color: white;
-            margin-bottom: 40px;
-        }
-        
-        .header h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .header p {
-            font-size: 18px;
-            opacity: 0.95;
-        }
-        
-        .table-container {
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            padding: 40px;
-            margin-bottom: 30px;
-            animation: fadeIn 0.5s ease-in;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .table-title {
-            color: #2d3748;
-            margin-bottom: 10px;
-            font-size: 26px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .table-badge {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-size: 20px;
-            font-weight: bold;
-        }
-        
-        .table-subtitle {
-            color: #718096;
-            font-size: 14px;
-            margin-bottom: 25px;
-            font-style: italic;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        
-        thead {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-        
-        th {
-            padding: 16px 12px;
-            text-align: left;
-            font-weight: 600;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        td {
-            padding: 14px 12px;
-            border-bottom: 1px solid #e2e8f0;
-            font-size: 14px;
-        }
-        
-        tbody tr:hover {
-            background-color: #f7fafc;
-            transition: background-color 0.2s ease;
-        }
-        
-        tbody tr:last-child td {
-            border-bottom: none;
-        }
-        
-        .command {
-            font-family: 'Courier New', monospace;
-            background-color: #2d3748;
-            color: #68d391;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            display: inline-block;
-        }
-        
-        .phase-header {
-            font-weight: 700;
-            background-color: #edf2f7;
-            color: #2d3748;
-            text-transform: uppercase;
-            font-size: 11px;
-            letter-spacing: 1px;
-        }
-        
-        .fase-number {
-            font-weight: 700;
-            color: #667eea;
-            min-width: 40px;
-            text-align: center;
-        }
-        
-        .cheatsheet-section {
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            padding: 40px;
-            margin-top: 30px;
-        }
-        
-        .cheatsheet-title {
-            color: #2d3748;
-            font-size: 32px;
-            margin-bottom: 30px;
-            text-align: center;
-            font-weight: 700;
-        }
-        
-        .command-group {
-            margin-bottom: 30px;
-        }
-        
-        .command-group-title {
-            color: #667eea;
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 15px;
-            padding-bottom: 8px;
-            border-bottom: 3px solid #667eea;
-        }
-        
-        .code-block {
-            background-color: #2d3748;
-            color: #68d391;
-            padding: 20px;
-            border-radius: 8px;
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-            line-height: 1.8;
-            overflow-x: auto;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-        
-        .code-line {
-            color: #68d391;
-        }
-        
-        .code-comment {
-            color: #a0aec0;
-        }
-        
-        @media (max-width: 768px) {
-            .table-container {
-                padding: 20px;
-            }
-            
-            table {
-                font-size: 12px;
-            }
-            
-            th, td {
-                padding: 10px 8px;
-            }
-            
-            .header h1 {
-                font-size: 28px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="main-container">
@@ -300,7 +98,7 @@
                         <td class="fase-number">10</td>
                         <td>Preparar cambios</td>
                         <td><span class="command">git add .</span></td>
-                        <td>Staging</td>
+                        <td>Prepara los cambios para el próximo commit (Staging)</td>
                     </tr>
                     <tr>
                         <td class="fase-number">11</td>
@@ -401,13 +199,13 @@
                         <td class="fase-number">8</td>
                         <td>Ver estado</td>
                         <td><span class="command">git status</span></td>
-                        <td>Cambios</td>
+                        <td>Muestra el estado del repositorio</td>
                     </tr>
                     <tr>
                         <td class="fase-number">9</td>
                         <td>Preparar cambios</td>
                         <td><span class="command">git add .</span></td>
-                        <td>Staging</td>
+                        <td>Prepara los cambios para el próximo commit (Staging)</td>
                     </tr>
                     <tr>
                         <td class="fase-number">10</td>
@@ -504,7 +302,7 @@
                         <td class="fase-number">9</td>
                         <td>Preparar cambios</td>
                         <td><span class="command">git add .</span></td>
-                        <td>Staging</td>
+                        <td>Prepara los cambios para el próximo commit (Staging)</td>
                     </tr>
                     <tr>
                         <td class="fase-number">10</td>
@@ -546,43 +344,50 @@
             
             <div class="command-group">
                 <h3 class="command-group-title">CONFIGURACIÓN (una vez)</h3>
-                <div class="code-block">git config --global user.name "TuNombre"
-git config --global user.email "tuemail@correo.com"</div>
+                <div class="code-block">git config --global user.name "TuNombre"</div>
+                <div class="code-block">git config --global user.email "tuemail@correo.com"</div>
             </div>
 
             <div class="command-group">
                 <h3 class="command-group-title">CREAR PROYECTO LOCAL + GITHUB VACÍO</h3>
-                <div class="code-block">cd proyecto
-git init
-git add .
-git commit -m "Initial commit"
-git remote add origin URL
-git push -u origin main</div>
+                <div class="code-block">cd proyecto</div>
+                <div class="code-block">git init</div>
+                <div class="code-note">📝 Aquí creas y editas tus archivos de código</div>
+                <div class="code-block">git add .</div>
+                <div class="code-block">git commit -m "Initial commit"</div>
+                <div class="code-block">git remote add origin URL</div>
+                <div class="code-block">git push -u origin main</div>
             </div>
 
             <div class="command-group">
                 <h3 class="command-group-title">GITHUB CON README</h3>
-                <div class="code-block">git clone URL
-cd repo
-git add .
-git commit -m "Update project"
-git push origin main</div>
+                <div class="code-block">git clone URL</div>
+                <div class="code-block">cd repo</div>
+                <div class="code-note">📝 Aquí creas y editas tus archivos de código</div>
+                <div class="code-block">git add .</div>
+                <div class="code-block">git commit -m "Update project"</div>
+                <div class="code-block">git push origin main</div>
             </div>
 
             <div class="command-group">
                 <h3 class="command-group-title">TRABAJO NORMAL (cada cambio)</h3>
-                <div class="code-block">git status
-git add .
-git commit -m "Mensaje"
-git push origin tu-rama</div>
+                <div class="code-note">📝 Aquí editas tus archivos de código</div>
+                <div class="code-block">git status</div>
+                <div class="code-block">git add .</div>
+                <div class="code-block">git commit -m "Mensaje"</div>
+                <div class="code-block">git push origin tu-rama</div>
             </div>
 
             <div class="command-group">
                 <h3 class="command-group-title">ACTUALIZARTE</h3>
-                <div class="code-block">git checkout main
-git pull origin main
-git checkout tu-rama
-git merge main</div>
+                <div class="code-block">git checkout main</div>
+                <div class="code-block">git pull origin main</div>
+                <div class="code-block">git checkout tu-rama</div>
+                <div class="code-block">git merge main</div>
+                <div class="code-note">📝 Aquí editas tus archivos si es necesario</div>
+                <div class="code-block">git add .</div>
+                <div class="code-block">git commit -m "Mensaje"</div>
+                <div class="code-block">git push origin tu-rama</div>
             </div>
 
             <div class="command-group">

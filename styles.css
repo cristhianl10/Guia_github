@@ -1,0 +1,365 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+
+.main-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+}
+
+.header h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.header p {
+    font-size: 18px;
+    opacity: 0.95;
+}
+
+.table-container {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    padding: 40px;
+    margin-bottom: 30px;
+    animation: fadeIn 0.5s ease-in;
+    overflow-x: auto;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.table-title {
+    color: #2d3748;
+    margin-bottom: 10px;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.table-badge {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.table-subtitle {
+    color: #718096;
+    font-size: 14px;
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    min-width: 600px;
+}
+
+thead {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+th {
+    padding: 16px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 14px;
+}
+
+tbody tr:hover {
+    background-color: #f7fafc;
+    transition: background-color 0.2s ease;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.command {
+    font-family: 'Courier New', monospace;
+    background-color: #2d3748;
+    color: #68d391;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    display: inline-block;
+    word-break: break-all;
+}
+
+.phase-header {
+    font-weight: 700;
+    background-color: #edf2f7;
+    color: #2d3748;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.fase-number {
+    font-weight: 700;
+    color: #667eea;
+    min-width: 40px;
+    text-align: center;
+}
+
+.cheatsheet-section {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    padding: 40px;
+    margin-top: 30px;
+}
+
+.cheatsheet-title {
+    color: #2d3748;
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.command-group {
+    margin-bottom: 30px;
+}
+
+.command-group .code-block {
+    margin-bottom: 10px;
+}
+
+.command-group .code-block:last-child {
+    margin-bottom: 0;
+}
+
+.command-group-title {
+    color: #667eea;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 3px solid #667eea;
+}
+
+.code-block {
+    background-color: #2d3748;
+    color: #68d391;
+    padding: 20px;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.8;
+    overflow-x: auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    word-break: break-word;
+}
+
+.code-note {
+    background-color: #edf2f7;
+    color: #2d3748;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    border-left: 4px solid #667eea;
+    margin: 10px 0;
+}
+
+.code-line {
+    color: #68d391;
+}
+
+.code-comment {
+    color: #a0aec0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .main-container {
+        max-width: 100%;
+    }
+    
+    .table-container {
+        padding: 30px 20px;
+    }
+    
+    .cheatsheet-section {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 20px 10px;
+    }
+    
+    .header h1 {
+        font-size: 28px;
+    }
+    
+    .header p {
+        font-size: 16px;
+    }
+    
+    .table-container {
+        padding: 20px 15px;
+        border-radius: 12px;
+    }
+    
+    .table-title {
+        font-size: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .table-badge {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+    
+    .table-subtitle {
+        font-size: 13px;
+    }
+    
+    table {
+        font-size: 12px;
+        min-width: 550px;
+    }
+    
+    th, td {
+        padding: 10px 8px;
+        font-size: 12px;
+    }
+    
+    .command {
+        font-size: 11px;
+        padding: 3px 6px;
+    }
+    
+    .cheatsheet-section {
+        padding: 25px 15px;
+        border-radius: 12px;
+    }
+    
+    .cheatsheet-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    .command-group-title {
+        font-size: 16px;
+    }
+    
+    .code-block {
+        padding: 15px;
+        font-size: 12px;
+    }
+    
+    .code-note {
+        padding: 12px 15px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 15px 5px;
+    }
+    
+    .header h1 {
+        font-size: 24px;
+    }
+    
+    .header p {
+        font-size: 14px;
+    }
+    
+    .table-container {
+        padding: 15px 10px;
+    }
+    
+    .table-title {
+        font-size: 18px;
+    }
+    
+    .table-badge {
+        font-size: 14px;
+    }
+    
+    table {
+        font-size: 11px;
+        min-width: 500px;
+    }
+    
+    th, td {
+        padding: 8px 6px;
+        font-size: 11px;
+    }
+    
+    .cheatsheet-section {
+        padding: 20px 10px;
+    }
+    
+    .cheatsheet-title {
+        font-size: 20px;
+    }
+    
+    .command-group-title {
+        font-size: 14px;
+    }
+    
+    .code-block {
+        padding: 12px;
+        font-size: 11px;
+    }
+    
+    .code-note {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+}
+
+/* Landscape phones */
+@media (max-width: 768px) and (orientation: landscape) {
+    .header {
+        margin-bottom: 25px;
+    }
+    
+    .table-container {
+        margin-bottom: 20px;
+    }
+}
