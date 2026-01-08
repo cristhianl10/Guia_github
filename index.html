@@ -356,6 +356,7 @@
                 <div class="code-block">git add .</div>
                 <div class="code-block">git commit -m "Initial commit"</div>
                 <div class="code-block">git remote add origin URL</div>
+                <div class="code-note">⚠️ No se hace git pull porque el repo remoto está vacío (primer push)</div>
                 <div class="code-block">git push -u origin main</div>
             </div>
 
@@ -363,11 +364,12 @@
                 <h3 class="command-group-title">GITHUB CON README</h3>
                 <div class="code-block">git clone URL</div>
                 <div class="code-block">cd repo</div>
+                <div class="code-note">⚠️ No se hace git pull porque acabas de clonar (ya tienes la última versión)</div>
                 <div class="code-note">📝 Aquí creas y editas tus archivos de código</div>
                 <div class="code-block">git add .</div>
                 <div class="code-block">git commit -m "Update project"</div>
                 <div class="code-block">git pull origin main</div>
-                <div class="code-note">📝 Actualiza tu rama local con los cambios remotos (evita conflictos)</div>
+                <div class="code-note">✅ SIEMPRE hacer git pull antes de push (buena práctica)</div>
                 <div class="code-block">git push origin main</div>
             </div>
 
@@ -386,12 +388,13 @@
             <div class="command-group">
                 <h3 class="command-group-title">TRABAJO NORMAL (cada cambio)</h3>
                 <div class="code-block">git checkout -b nombre-de-tu-rama</div>
+                <div class="code-note">⚠️ No se hace git pull porque es una rama NUEVA que acabas de crear</div>
                 <div class="code-note">📝 Aquí editas tus archivos de código</div>
                 <div class="code-block">git status</div>
                 <div class="code-block">git add .</div>
                 <div class="code-block">git commit -m "Mensaje"</div>
                 <div class="code-block">git pull origin nombre-de-tu-rama</div>
-                <div class="code-note">📝 Actualiza tu rama local con los cambios remotos (evita conflictos)</div>
+                <div class="code-note">✅ SIEMPRE hacer git pull antes de push (buena práctica, por si alguien más trabajó en tu rama)</div>
                 <div class="code-block">git push origin nombre-de-tu-rama</div>
             </div>
 
@@ -405,7 +408,7 @@
                 <div class="code-block">git add .</div>
                 <div class="code-block">git commit -m "Merge main into rama"</div>
                 <div class="code-block">git pull origin nombre-de-tu-rama</div>
-                <div class="code-note">📝 Actualiza tu rama local con los cambios remotos (evita conflictos)</div>
+                <div class="code-note">✅ SIEMPRE hacer git pull antes de push (buena práctica)</div>
                 <div class="code-block">git push origin nombre-de-tu-rama</div>
             </div>
 
