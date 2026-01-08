@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Completa Git & GitHub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+        
+        .table-container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            margin-bottom: 30px;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .table-title {
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-size: 26px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .table-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .table-subtitle {
+            color: #718096;
+            font-size: 14px;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        th {
+            padding: 16px 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        td {
+            padding: 14px 12px;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 14px;
+        }
+        
+        tbody tr:hover {
+            background-color: #f7fafc;
+            transition: background-color 0.2s ease;
+        }
+        
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .command {
+            font-family: 'Courier New', monospace;
+            background-color: #2d3748;
+            color: #68d391;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            display: inline-block;
+        }
+        
+        .phase-header {
+            font-weight: 700;
+            background-color: #edf2f7;
+            color: #2d3748;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+        
+        .fase-number {
+            font-weight: 700;
+            color: #667eea;
+            min-width: 40px;
+            text-align: center;
+        }
+        
+        .cheatsheet-section {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            margin-top: 30px;
+        }
+        
+        .cheatsheet-title {
+            color: #2d3748;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 700;
+        }
+        
+        .command-group {
+            margin-bottom: 30px;
+        }
+        
+        .command-group-title {
+            color: #667eea;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .code-block {
+            background-color: #2d3748;
+            color: #68d391;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.8;
+            overflow-x: auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .code-line {
+            color: #68d391;
+        }
+        
+        .code-comment {
+            color: #a0aec0;
+        }
+        
+        @media (max-width: 768px) {
+            .table-container {
+                padding: 20px;
+            }
+            
+            table {
+                font-size: 12px;
+            }
+            
+            th, td {
+                padding: 10px 8px;
+            }
+            
+            .header h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="header">
+            <h1>📚 Guía Completa Git & GitHub</h1>
+            <p>3 Flujos de Trabajo Esenciales</p>
+        </div>
+
+        <!-- TABLA 1 -->
+        <div class="table-container">
+            <h2 class="table-title">
+                <span class="table-badge">🅰️ TABLA 1</span>
+                GITHUB VACÍO (sin README)
+            </h2>
+            <p class="table-subtitle">(El repo existe en GitHub, pero no tiene nada)</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 8%;">FASE</th>
+                        <th style="width: 22%;">ACCIÓN</th>
+                        <th style="width: 28%;">COMANDO / DÓNDE</th>
+                        <th style="width: 42%;">QUÉ PASA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td colspan="4" class="phase-header">CONFIGURACIÓN</td></tr>
+                    <tr>
+                        <td class="fase-number">1</td>
+                        <td>Instalar Git</td>
+                        <td>Sistema</td>
+                        <td>Git disponible</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-number">2</td>
+                        <td>Configurar usuario</td>
+                        <td><span class="command">git config --global user.name</span></td>
+                        <td>Identidad</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-number">3</td>
+                        <td>Configurar correo</td>
+                        <td><span class="command">git config --global user.email</span></td>
+                        <td>Vinculación</td>
+                    </tr>
+                    
+                    <tr><td colspan="4" class="phase-header">GITHUB</td></tr>
+                    <tr>
+                        <td class="fase-number">4</td>
+                        <td>Crear repo vacío</td>
+                        <td>GitHub Web</td>
+                        <td>Sin commits</td>
+                    </tr>
+                    
+                    <tr><td colspan="4" class="phase-header">LOCAL</td></tr>
+                    <tr>
+                        <td class="fase-number">5</td>
+                        <td>Crear carpeta proyecto</td>
+                        <td>PC</td>
+                        <td>Carpeta vacía</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-number">6</td>
+                        <td>Entrar carpeta</td>
+                        <td><span class="command">cd proyecto</span></td>
+                        <td>Ubicación</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-number">7</td>
+                        <td>Iniciar Git</td>
+                        <td><span class="command">git init</span></td>
+                        <td>Repo local</td>
+                    </tr>
+                    
+                    <tr><td colspan="4" class="phase-header">DESARROLLO</td></tr>
+                    <tr>
+                        <td class="fase-number">8</td>
+                        <td>Crear archivos</td>
+                        <td>Editor</td>
+                        <td>Código</td>
+                    </tr>
+                    
+                    <tr><td colspan="4" class="phase-header">CONTROL</td></tr>
+                    <tr>
+                        <td class="fase-number">9</td>
+                        <td>Ver estado</td>
+                        <td><span class="command">git status</span></td>
+                        <td>Archivos nuevos</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-number">10</td>
+                        <td>Preparar cambios</td>
+                        <td><span class="command">git add .</span></td>
+                        <td>Staging</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-number">11</td>
+                        <td>Primer commit</td>
+                        <td><span class="command">git commit -m "Primer commit"</span></td>
+                        <td>Versión inicial</td>
+                    </tr>
+                    
+                    <tr><td colspan="4" class="phase-header">CONEXIÓN</td></tr>
+                    <tr>
+                        <td class="fase-number">12</td>
+                        <td>Agregar remoto</td>
+                        <td><span class="command">git remote add origin URL</span></td>
+                        <td>Enlace GitHub</td>
+                    </tr>
+                    
+                    <tr><td colspan="4" class="phase-header">PUBLICAR</td></tr>
+                    <tr>
+                        <td class="fase-number">13</td>
+                        <td>Subir a main</td>
+                        <td><span class="command">git push -u origin main</span></td>
+                        <td>GitHub deja de estar vacío</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- TABLA 2 -->
+        <div class="table-container">
+            <h2 class="table-title">
+                <span class="table-badge">🅱️ TABLA 2</span>
+                GITHUB CON README
+            </h2>
+            <p class="table-subtitle">(El repo ya tiene al menos un commit)</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 8%;">FASE</th>
+                        <th style="width: 22%;">ACCIÓN</th>
+                        <th style="width: 28%;">COMANDO / DÓNDE</th>
+                        <th style="width: 42%;">QUÉ PASA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td colspan="4" class="phase-header">CONFIGURACIÓN</td></tr>
+                    <tr>
+                        <td class="fase-number">1</td>
+                        <td>Instalar Git</td>
+                        <td>Sistema</td>
+                        <td>Git disponible</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-number">2</td>
+                        <td>Configurar usuario</td>
+                        <td><span class="command">git config --global user.name</span></td>
+                        <td>Identidad</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-number">3</td>
+                        <td>Configurar correo</td>
+                        <td><span class="command">git config --global user.email</span></td>
+                        <td>Vinculación</td>
+                    </tr>
+                    
+                    <tr><td colspan="4" class="phase-header">GITHUB</td></tr>
+                    <tr>
+                        <td class="fase-number">4</td>
+                        <td>Crear repo con README</td>
+                        <td>GitHub Web</td>
+                        <td><span class="command">main</span> existe</td>
+                    </tr>
+                    
+                    <tr><td colspan="4" class="phase-header">LOCAL</td></tr>
+                    <tr>
+                        <td class="fase-number">5</td>
+                        <td>Clonar repo</td>
+                        <td><span class="command">git clone URL</span></td>
+                        <td>Descarga</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-number">6</td>
+                        <td>Entrar carpeta</td>
+                        <td><span class="command">cd repo</span></td>
+                        <td>Ubicación</td>
+                    </tr>
+                    
+                    <tr><td colspan="4" class="phase-header">DESARROLLO</td></tr>
+                    <tr>
+                        <td class="fase-number">7</td>
+                        <td>Editar / crear archivos</td>
+                        <td>Editor</td>
+                        <td>Código</td>
+                    </tr>
+                    
+                    <tr><td colspan="4" class="phase-header">CONTROL</td></tr>
+                    <tr>
+                        <td class="fase-number">8</td>
+                        <td>Ver estado</td>
+                        <td><span class="command">git status</span></td>
+                        <td>Cambios</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-number">9</td>
+                        <td>Preparar cambios</td>
+                        <td><span class="command">git add .</span></td>
+                        <td>Staging</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-number">10</td>
+                        <td>Commit</td>
+                        <td><span class="command">git commit -m "Agrega código"</span></td>
+                        <td>Nueva versión</td>
+                    </tr>
+                    
+                    <tr><td colspan="4" class="phase-header">PUBLICAR</td></tr>
+                    <tr>
+                        <td class="fase-number">11</td>
+                        <td>Push</td>
+                        <td><span class="command">git push origin main</span></td>
+                        <td>GitHub actualizado</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- TABLA 3 -->
+        <div class="table-container">
+            <h2 class="table-title">
+                <span class="table-badge">🅲 TABLA 3</span>
+                git init LOCAL + GITHUB VACÍO
+            </h2>
+            <p class="table-subtitle">(Empiezas el proyecto en tu PC y luego lo subes)</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 8%;">FASE</th>
+                        <th style="width: 22%;">ACCIÓN</th>
+                        <th style="width: 28%;">COMANDO / DÓNDE</th>
+                        <th style="width: 42%;">QUÉ PASA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td colspan="4" class="phase-header">CONFIGURACIÓN</td></tr>
+                    <tr>
+                        <td class="fase-number">1</td>
+                        <td>Instalar Git</td>
+                        <td>Sistema</td>
+                        <td>Git disponible</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-number">2</td>
+                        <td>Configurar usuario</td>
+                        <td><span class="command">git config --global user.name</span></td>
+                        <td>Identidad</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-number">3</td>
+                        <td>Configurar correo</td>
+                        <td><span class="command">git config --global user.email</span></td>
+                        <td>Vinculación</td>
+                    </tr>
+                    
+                    <tr><td colspan="4" class="phase-header">LOCAL</td></tr>
+                    <tr>
+                        <td class="fase-number">4</td>
+                        <td>Crear carpeta proyecto</td>
+                        <td>PC</td>
+                        <td>Carpeta local</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-number">5</td>
+                        <td>Entrar carpeta</td>
+                        <td><span class="command">cd proyecto</span></td>
+                        <td>Ubicación</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-number">6</td>
+                        <td>Iniciar Git</td>
+                        <td><span class="command">git init</span></td>
+                        <td>Repo local</td>
+                    </tr>
+                    
+                    <tr><td colspan="4" class="phase-header">DESARROLLO</td></tr>
+                    <tr>
+                        <td class="fase-number">7</td>
+                        <td>Crear / editar archivos</td>
+                        <td>Editor</td>
+                        <td>Código</td>
+                    </tr>
+                    
+                    <tr><td colspan="4" class="phase-header">CONTROL</td></tr>
+                    <tr>
+                        <td class="fase-number">8</td>
+                        <td>Ver estado</td>
+                        <td><span class="command">git status</span></td>
+                        <td>Archivos</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-number">9</td>
+                        <td>Preparar cambios</td>
+                        <td><span class="command">git add .</span></td>
+                        <td>Staging</td>
+                    </tr>
+                    <tr>
+                        <td class="fase-number">10</td>
+                        <td>Primer commit</td>
+                        <td><span class="command">git commit -m "Primer commit"</span></td>
+                        <td>Versión inicial</td>
+                    </tr>
+                    
+                    <tr><td colspan="4" class="phase-header">GITHUB</td></tr>
+                    <tr>
+                        <td class="fase-number">11</td>
+                        <td>Crear repo vacío</td>
+                        <td>GitHub Web</td>
+                        <td>Sin commits</td>
+                    </tr>
+                    
+                    <tr><td colspan="4" class="phase-header">CONEXIÓN</td></tr>
+                    <tr>
+                        <td class="fase-number">12</td>
+                        <td>Agregar remoto</td>
+                        <td><span class="command">git remote add origin URL</span></td>
+                        <td>Enlace</td>
+                    </tr>
+                    
+                    <tr><td colspan="4" class="phase-header">PUBLICAR</td></tr>
+                    <tr>
+                        <td class="fase-number">13</td>
+                        <td>Push inicial</td>
+                        <td><span class="command">git push -u origin main</span></td>
+                        <td>Proyecto publicado</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- CHEATSHEET -->
+        <div class="cheatsheet-section">
+            <h2 class="cheatsheet-title">⚡ Comandos Rápidos Git & GitHub</h2>
+            
+            <div class="command-group">
+                <h3 class="command-group-title">CONFIGURACIÓN (una vez)</h3>
+                <div class="code-block">git config --global user.name "TuNombre"
+git config --global user.email "tuemail@correo.com"</div>
+            </div>
+
+            <div class="command-group">
+                <h3 class="command-group-title">CREAR PROYECTO LOCAL + GITHUB VACÍO</h3>
+                <div class="code-block">cd proyecto
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin URL
+git push -u origin main</div>
+            </div>
+
+            <div class="command-group">
+                <h3 class="command-group-title">GITHUB CON README</h3>
+                <div class="code-block">git clone URL
+cd repo
+git add .
+git commit -m "Update project"
+git push origin main</div>
+            </div>
+
+            <div class="command-group">
+                <h3 class="command-group-title">TRABAJO NORMAL (cada cambio)</h3>
+                <div class="code-block">git status
+git add .
+git commit -m "Mensaje"
+git push origin tu-rama</div>
+            </div>
+
+            <div class="command-group">
+                <h3 class="command-group-title">ACTUALIZARTE</h3>
+                <div class="code-block">git checkout main
+git pull origin main
+git checkout tu-rama
+git merge main</div>
+            </div>
+
+            <div class="command-group">
+                <h3 class="command-group-title">PULL REQUEST</h3>
+                <div class="code-block">GitHub Web → Compare & Pull Request → Merge</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
