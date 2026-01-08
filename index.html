@@ -370,24 +370,37 @@
             </div>
 
             <div class="command-group">
+                <h3 class="command-group-title">BUENAS PRÁCTICAS - TRABAJAR CON RAMAS</h3>
+                <div class="code-block">git checkout -b feature/nueva-funcionalidad</div>
+                <div class="code-note">📝 Crea y cambia a una nueva rama (buena práctica: nunca trabajar directo en main)</div>
+                <div class="code-block">git branch</div>
+                <div class="code-note">📝 Ver en qué rama estás</div>
+                <div class="code-block">git checkout main</div>
+                <div class="code-note">📝 Cambiar a la rama main</div>
+                <div class="code-block">git checkout nombre-de-tu-rama</div>
+                <div class="code-note">📝 Volver a tu rama de trabajo</div>
+            </div>
+
+            <div class="command-group">
                 <h3 class="command-group-title">TRABAJO NORMAL (cada cambio)</h3>
+                <div class="code-block">git checkout -b nombre-de-tu-rama</div>
                 <div class="code-note">📝 Aquí editas tus archivos de código</div>
                 <div class="code-block">git status</div>
                 <div class="code-block">git add .</div>
                 <div class="code-block">git commit -m "Mensaje"</div>
-                <div class="code-block">git push origin tu-rama</div>
+                <div class="code-block">git push origin nombre-de-tu-rama</div>
             </div>
 
             <div class="command-group">
                 <h3 class="command-group-title">ACTUALIZARTE</h3>
                 <div class="code-block">git checkout main</div>
                 <div class="code-block">git pull origin main</div>
-                <div class="code-block">git checkout tu-rama</div>
+                <div class="code-block">git checkout nombre-de-tu-rama</div>
                 <div class="code-block">git merge main</div>
-                <div class="code-note">📝 Aquí editas tus archivos si es necesario</div>
+                <div class="code-note">📝 Aquí editas tus archivos si es necesario (resolver conflictos)</div>
                 <div class="code-block">git add .</div>
                 <div class="code-block">git commit -m "Mensaje"</div>
-                <div class="code-block">git push origin tu-rama</div>
+                <div class="code-block">git push origin nombre-de-tu-rama</div>
             </div>
 
             <div class="command-group">
